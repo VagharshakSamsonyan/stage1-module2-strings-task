@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MethodSignature {
+
     private String accessModifier;
     private String returnType;
     private String methodName;
+    private final int argumentCount;
     private final List<Argument> arguments;
 
-    public MethodSignature(String methodName, List<Argument> arguments) {
+    public MethodSignature(String accessModifier, String returnType, String methodName,  int argumentCount, List<Argument> arguments) {
+        this.accessModifier = accessModifier;
+        this.returnType = returnType;
         this.methodName = methodName;
+        this.argumentCount = argumentCount;
         this.arguments = arguments;
     }
 
     public MethodSignature(String methodName) {
-        this(methodName, new ArrayList<>());
+        this(null, null, methodName, 0, new ArrayList<>());
     }
 
     public String getMethodName() {
